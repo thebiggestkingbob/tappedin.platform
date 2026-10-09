@@ -1,0 +1,1 @@
+{"version":2,"buildCommand":"npm run build","outputDirectory":"public","rewrites":[{"source":"/(.*)","destination":"/api/platform"}],"functions":{"api/platform.mjs":{"includeFiles":"dist/server/**","maxDuration":60}}}

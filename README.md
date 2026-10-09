@@ -8,7 +8,7 @@ Your Vercel project is already connected to this repository. Before the platform
 
 ### 1. Create the database tables
 
-In Supabase, open **SQL Editor → New query**. Copy the entire contents of [supabase/migrations/001_platform.sql](supabase/migrations/001_platform.sql), paste into the editor, and click **Run** once. This creates the fresh application tables and private JSON helpers. It does not delete existing data. Do not run this initial migration twice.
+In Supabase, open **SQL Editor → New query**. Copy the entire contents of [supabase/setup.sql](supabase/setup.sql), paste into the editor, and click **Run** once. This creates the fresh application tables and private JSON helpers. It does not delete existing data. The setup script can be rerun and preserves existing rows; it stops if pre-existing tables have incompatible columns.
 
 Create another query, paste [supabase/storage.sql](supabase/storage.sql), and click **Run**. This creates the private media bucket.
 

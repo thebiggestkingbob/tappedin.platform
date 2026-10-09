@@ -22,7 +22,10 @@ In Vercel, open **tappedin.platform → Settings → Environment Variables** (or
 | `SUPABASE_PUBLISHABLE_KEY` | Supabase → Settings → API Keys → Publishable key. A legacy anon key also works. |
 | `SUPABASE_SECRET_KEY` | Supabase → Settings → API Keys → Secret key. A legacy service-role key also works. **Server only: never put it in GitHub or chat.** |
 | `DATABASE_URL` | Supabase → Connect → Transaction pooler → connection URI. Replace the password placeholder with your database password, URL-encoding special characters. Use port 6543 with the exact project-specific username shown in the panel. **Server only.** |
+| `SUPABASE_DB_CA_CERT` | Supabase → Database → Settings → SSL Configuration → Download certificate. Open the downloaded file in a text editor and paste its entire PEM contents, including BEGIN/END CERTIFICATE, as a multiline Vercel value. Required if the page reports `DATABASE_TLS`. This is a public CA certificate, not a password or private key. |
 | `APP_URL` | The exact HTTPS domain assigned to this Vercel project, without a trailing slash. Copy it from Vercel → Domains. Do not guess the name. |
+
+After adding or changing any variable, redeploy the latest production deployment. The server keeps certificate and hostname verification enabled.
 
 The example file contains no credentials. Never commit a completed `.env` file. The private key is used only in the server for storage; database access uses the pooled connection URI. Browser requests cannot supply a trusted member identity.
 

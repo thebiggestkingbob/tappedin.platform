@@ -26,6 +26,12 @@ In Vercel, open **tappedin.platform → Settings → Environment Variables** (or
 
 The example file contains no credentials. Never commit a completed `.env` file. The private key is used only in the server for storage; database access uses the pooled connection URI. Browser requests cannot supply a trusted member identity.
 
+### Sign in before setting up email delivery
+
+Password login works for a confirmed Supabase account without SMTP. In Supabase **Authentication → Users → Add user → Create new user**, enter your own email and a strong new account password, and enable **Auto confirm user** if shown. This is an application account, not your database login. Keep the password private. If the email already exists, do not delete an account with work attached; use another email you control or ask for help setting an existing account password through the Auth admin API.
+
+Open `/login` on the deployed website and select **Email & password**. Log in with that account. Your first login takes you through profile setup. Ordinary public email-code signups still require the SMTP setup below. This feature adds no demo accounts or authentication bypass.
+
 ### 3. Configure sign-in emails
 
 The platform uses email codes, not ChatGPT sign-in or demo accounts. In Supabase → Authentication → Email Templates, edit **Magic Link** and **Confirm signup** to include the OTP token:

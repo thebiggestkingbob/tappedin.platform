@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 let html=fs.readFileSync('web/app.html','utf8');
-const css=fs.readFileSync('web/upgrade.css','utf8')+'\n'+fs.readFileSync('web/community.css','utf8');
+const css=fs.readFileSync('web/upgrade.css','utf8')+'\n'+fs.readFileSync('web/community.css','utf8')+'\n'+fs.readFileSync('web/homepage.css','utf8');
 let client='const roleCategories='+fs.readFileSync('web/categories.json','utf8')+';\n'+fs.readFileSync('web/upgrade.js','utf8')+'\n'+fs.readFileSync('web/community.js','utf8');
 client=client.replace("demoMode=location.pathname==='/demo'","demoMode=false");
 // Bootstrap only after the production auth and navigation functions are installed.
 const boot=/startApp\(\)\.then\(async\(\)=>\{[^\n]*\);/;
 const start=client.match(boot)?.[0];if(!start)throw new Error('Startup not found');client=client.replace(boot,'');
-client+='\n'+fs.readFileSync('web/production.js','utf8')+'\n'+start;
+client+='\n'+fs.readFileSync('web/production.js','utf8')+'\n'+fs.readFileSync('web/homepage.js','utf8')+'\n'+start;
 html=html.replace('</style>',css+'\n</style>').replace('</script>',client+'\n</script>');
 html=html.replace(/\/signout-with-chatgpt\?return_to=[^"']*/g,'/auth/logout').replace(/\/signin-with-chatgpt/g,'/auth/login').replace(/ →/g,'').replace(/Sample links lead to platform homepages/g,'').replace(/This is saved locally in the prototype\./g,'').replace(/This removes the local post/g,'This removes the post');
 html=html.replace(/<a[^>]*href="\/demo[^"]*"[^>]*>.*?<\/a>/g,'');

@@ -100,3 +100,7 @@ Creating these external projects, configuring SMTP and deploying are account-own
 ## Public homepage
 
 The homepage presents existing profiles, Discover, credits, opportunities, Office and fan contributions. Its local screenshots contain clearly labelled fictional test content, never live member records. See [homepage showcase notes](docs/homepage-showcase.md) for feature accuracy, preview provenance, scope and the review checklist. No new services or environment variables are required.
+
+## Discovery, public sharing and profile updates
+
+See [the platform update guide](docs/platform-updates.md) for the combined Discovery page, designer roles, public post links, thumbnails, Office notifications, shared awards and venue invitations. These updates need no additional environment variables, services or database migration. Run `npm run build` and `npm test`, review the branch's Vercel preview, then merge into the production branch to publish.

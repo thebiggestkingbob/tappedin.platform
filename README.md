@@ -96,3 +96,7 @@ Creating these external projects, configuring SMTP and deploying are account-own
 - Media limits remain 25 MB per file and 500 MB per project. Pending uploads need periodic cleanup. Social metrics need supported provider authorisation; linking a URL is not an analytics connection.
 - Vercel/Supabase storage, compute, email and database quotas depend on your plans. This release does not establish a guaranteed concurrent-user capacity; load-test before a larger launch.
 - Local tests use an isolated database and mocked Auth responses. Real confirmation delivery, recovery, production session handling and deployment need live acceptance checks. No live provider settings or user records are changed by running tests.
+
+## Public homepage
+
+The homepage presents existing profiles, Discover, credits, opportunities, Office and fan contributions. Its local screenshots contain clearly labelled fictional test content, never live member records. See [homepage showcase notes](docs/homepage-showcase.md) for feature accuracy, preview provenance, scope and the review checklist. No new services or environment variables are required.

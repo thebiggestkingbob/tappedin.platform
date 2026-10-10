@@ -29,32 +29,39 @@ After adding or changing any variable, redeploy the latest production deployment
 
 The example file contains no credentials. Never commit a completed `.env` file. The private key is used only in the server for storage; database access uses the pooled connection URI. Browser requests cannot supply a trusted member identity.
 
-### Sign in before setting up email delivery
+### 3. Enable email-and-password accounts
 
-Password login works for a confirmed Supabase account without SMTP. In Supabase **Authentication → Users → Add user → Create new user**, enter your own email and a strong new account password, and enable **Auto confirm user** if shown. This is an application account, not your database login. Keep the password private. If the email already exists, do not delete an account with work attached; use another email you control or ask for help setting an existing account password through the Auth admin API.
+Supabase → Authentication → Sign In / Providers → Email: enable email signups and **Confirm email**. Set the minimum password length to **10** (or stronger); the application requires at least 10 characters. Password login replaces ordinary passwordless login. Existing users without a password can use **Forgot password?** to set one without deleting their profile or work.
 
-Open `/login` on the deployed website and select **Email & password**. Log in with that account. Your first login takes you through profile setup. Ordinary public email-code signups still require the SMTP setup below. This feature adds no demo accounts or authentication bypass.
-
-### 3. Configure sign-in emails
-
-The platform uses email codes, not ChatGPT sign-in or demo accounts. In Supabase → Authentication → Email Templates, edit **Magic Link** and **Confirm signup** to include the OTP token:
+Under **Authentication → Email Templates**, update **Confirm signup**:
 
 ```html
-<h2>Your TAPPED IN sign-in code</h2>
-<p>Enter this code on the TAPPED IN sign-in page:</p>
+<h2>Confirm your TAPPED IN account</h2>
+<p>Enter this code on the sign-up page:</p>
+<p style="font-size:28px;font-weight:bold">{{ .Token }}</p>
+<p>After confirmation, sign in with your email and password.</p>
+```
+
+Update **Reset password**:
+
+```html
+<h2>Reset your TAPPED IN password</h2>
+<p>Enter this code on the password reset page:</p>
 <p style="font-size:28px;font-weight:bold">{{ .Token }}</p>
 <p>If you did not request this, ignore this email.</p>
 ```
 
-Set **Authentication → URL Configuration → Site URL** to the same value as `APP_URL`.
+These codes confirm the account or authorise setting a new password; they are not an ordinary passwordless sign-in method. Do not use the previous magic-link template for these flows. Keep **Authentication → URL Configuration → Site URL** equal to `APP_URL`.
 
-For public signups, configure a transactional email provider under Authentication's SMTP settings. Supabase's built-in sender has low sending limits and restricted recipients; it is suitable for initial setup checks, not unrestricted public signup. You can use a provider's free tier to start. Keep sign-in email rate limits enabled.
+Configure a transactional email provider under Authentication's SMTP settings before inviting public users. Supabase's default sender has restricted recipients and low limits; public sign-up and recovery need working delivery. Keep provider rate limits enabled. No extra application environment variables or tables are required by this account change.
+
+A confirmed account created through Supabase **Authentication → Users → Add user** can still sign in with its account password. Never use the database password for an application account.
 
 ### 4. Redeploy
 
 After saving the variables, open **Vercel → Deployments**, select the latest deployment, and choose **Redeploy**. Framework preset: **Other**. Build command and output directory are defined in `vercel.json`; root directory is the repository root.
 
-Verify: open the homepage; create an account with an email code; choose your main category and primary role; save a profile; create a project; send a message; upload media; design a rate card and save an invoice. Check private information with a second account. `/demo` must return 404.
+Verify: open the homepage; create an account with email and password, confirm its email code, log in, test logout and password reset; choose your main category and primary role; save a profile; create a project; send a message; upload media; design a rate card and save an invoice. Check private information with a second account. `/demo` must return 404.
 
 ## Development
 
@@ -67,3 +74,25 @@ Vercel Node function serves the existing UI and application API. Supabase Auth v
 Supabase Storage holds private project media and profile photos. Photos are served publicly by the application; project files are served only after current project membership is checked. Large office files upload directly using short-lived signed upload URLs, then the server validates the actual media bytes and associates them with the project. Each file is limited to 25 MB and each project to 500 MB. Abandoned temporary uploads in the `pending/` prefix should be periodically removed using the Storage dashboard; they are never served as project files.
 
 Existing supported features include Feed, Discover, public briefs/gig bids, credits, named stakeholder invitations, fans and contributions, Office projects/teams/messages/documents/assets/bookings, scoped agent access, profile awards and contact details, rate cards and invoices. Live social metrics remain dependent on supported provider authorisation; linking a profile does not fabricate follower or engagement numbers.
+
+## Separate user testing environment
+
+1. Create a separate Supabase project for testing. Run `supabase/setup.sql` and `supabase/storage.sql` there; do not copy live user data.
+2. Configure the Email provider, confirmation/reset templates and SMTP for that test project.
+3. In Vercel, configure **Preview** variables using that project's URL, publishable key, server-only secret key, pooled `DATABASE_URL`, and CA certificate. Set `APP_URL` to the stable preview URL you will test, and use it as the test project's Site URL. Keep Production variables bound to the existing production Supabase project.
+4. Deploy the account branch as a Preview. If Vercel deployment protection is enabled, give testers access through its supported sharing controls.
+5. Test two accounts: sign-up, confirmation, login, refresh, logout, wrong password, reset, expired code, profile completion, messages and project access. Check that one account cannot read another's private earnings, invoices or project files.
+6. After acceptance, merge the branch and redeploy Production; configure the same Email settings/templates on the production project.
+
+Creating these external projects, configuring SMTP and deploying are account-owner actions; repository changes do not perform them automatically.
+
+## Limitations before inviting users
+
+- Signup confirmation and password reset require SMTP and correctly configured token templates. A generic reset acknowledgement does not prove email arrival or account existence.
+- Codes expire and are single use; Supabase enforces provider rate limits. Configure additional abuse protection/CAPTCHA as traffic grows (the current UI does not integrate CAPTCHA).
+- Passwords are handled by Supabase Auth and never stored in platform tables. Sessions use HttpOnly cookies; cookies must be enabled. Ordinary passwordless API endpoints are retired.
+- No MFA, self-service account deletion/export, automated moderation or billing/payment processing is added by this change.
+- Public profile contact details/photos and explicitly shared rate-card snapshots are visible to others; project documents and financial data are subject to server-side permissions.
+- Media limits remain 25 MB per file and 500 MB per project. Pending uploads need periodic cleanup. Social metrics need supported provider authorisation; linking a URL is not an analytics connection.
+- Vercel/Supabase storage, compute, email and database quotas depend on your plans. This release does not establish a guaranteed concurrent-user capacity; load-test before a larger launch.
+- Local tests use an isolated database and mocked Auth responses. Real confirmation delivery, recovery, production session handling and deployment need live acceptance checks. No live provider settings or user records are changed by running tests.

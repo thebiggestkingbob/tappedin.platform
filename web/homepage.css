@@ -7,3 +7,6 @@
 .home-page .home-step-number{color:var(--text)}.home-page button:hover,.home-page .text-btn:hover,.home-page .text-btn:hover *{color:var(--text)!important}.home-page .text-btn:hover{text-decoration:underline;text-underline-offset:5px}
 .home-page .eyebrow{color:var(--text)!important}.home-page .home-hero h2{font-size:19px;line-height:1.4;letter-spacing:-.02em;text-transform:none}
 @media(max-width:780px){.home-page .home-hero h2{font-size:18px}}
+
+/* Minimal red headline accent and the same colour transition on every public CTA. */
+.home-page .home-hero h1 .red{color:#c42a36}.home-page a,.home-page button,.site-links a,.site-links button{transition:color .18s ease,border-color .18s ease,background-color .18s ease}.home-page a:hover,.home-page button:hover,.home-page .text-btn:hover,.home-page .text-btn:hover *,.site-links a:hover,.site-links button:hover{color:#c42a36!important;text-decoration:none!important}.home-page .btn:hover{border-color:var(--red);background:transparent}.home-page a:hover .icon{transform:none}.home-page .text-btn .icon{display:none}.home-page .text-btn{text-decoration:none!important}

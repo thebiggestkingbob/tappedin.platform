@@ -38,4 +38,4 @@ The designated chat output directory is unavailable on the attached environment'
 
 ## Production release
 
-Target: existing tappedin.platform project, team team_v8zAj6GZvTNVlH2l3yObf0dc, production main branch, https://tappedinplatform.vercel.app/. The scoped Vercel project-inspection API returned 403; the existing authenticated Git integration is the release path. Release outcome will be recorded after verification.
+Target: existing tappedin.platform project, team team_v8zAj6GZvTNVlH2l3yObf0dc, production main branch, https://tappedinplatform.vercel.app/. The scoped Vercel project-inspection API returned 403; the existing authenticated Git integration is the release path. Release verified: commit ab551dcecac87a5c0a24a3e2a6abb389e5acf93d, deployment dpl_DborkjqGxaoPapVCdc8UgVSCTcJD, target production, state READY, alias tappedinplatform.vercel.app assigned with no alias error. Vercel build duration: approximately 14 seconds. Deployment logs and live fetch access were denied by the connected Vercel app (403); runtime error scan and live authenticated acceptance are unverified. This follow-up report update changes documentation only.

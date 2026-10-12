@@ -1,0 +1,503 @@
+[
+  {
+    "phase": "after",
+    "route": "/",
+    "width": 1440,
+    "overflow": false,
+    "theme": "light",
+    "background": "rgb(255, 255, 255)"
+  },
+  {
+    "phase": "after",
+    "route": "/",
+    "width": 1280,
+    "overflow": false,
+    "theme": "light",
+    "background": "rgb(255, 255, 255)"
+  },
+  {
+    "phase": "after",
+    "route": "/",
+    "width": 1024,
+    "overflow": false,
+    "theme": "light",
+    "background": "rgb(255, 255, 255)"
+  },
+  {
+    "phase": "after",
+    "route": "/",
+    "width": 768,
+    "overflow": false,
+    "theme": "light",
+    "background": "rgb(255, 255, 255)"
+  },
+  {
+    "phase": "after",
+    "route": "/",
+    "width": 430,
+    "overflow": false,
+    "theme": "light",
+    "background": "rgb(255, 255, 255)"
+  },
+  {
+    "phase": "after",
+    "route": "/",
+    "width": 390,
+    "overflow": false,
+    "theme": "light",
+    "background": "rgb(255, 255, 255)"
+  },
+  {
+    "phase": "after",
+    "route": "/",
+    "width": 360,
+    "overflow": false,
+    "theme": "light",
+    "background": "rgb(255, 255, 255)"
+  },
+  {
+    "phase": "after",
+    "route": "/feed",
+    "width": 1440,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nFeed\nDiscover\nJoin TAPPED IN\nTap In +\nJoin TAPPED INAlready tapped in? Log in\nCONNE"
+  },
+  {
+    "phase": "after",
+    "route": "/feed",
+    "width": 1280,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nFeed\nDiscover\nJoin TAPPED IN\nTap In +\nJoin TAPPED INAlready tapped in? Log in\nCONNE"
+  },
+  {
+    "phase": "after",
+    "route": "/feed",
+    "width": 1024,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nFeed\nDiscover\nJoin TAPPED IN\nTap In +\nJoin TAPPED INAlready tapped in? Log in\nCONNE"
+  },
+  {
+    "phase": "after",
+    "route": "/feed",
+    "width": 768,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nCONNECTED THROUGH THE WORK\nThe feed.\nTap In +\nFor you\nFollowing\nYour reposts\nSaved\n"
+  },
+  {
+    "phase": "after",
+    "route": "/feed",
+    "width": 430,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nCONNECTED THROUGH THE WORK\nThe feed.\nTap In +\nFor you\nFollowing\nYour reposts\nSaved\n"
+  },
+  {
+    "phase": "after",
+    "route": "/feed",
+    "width": 390,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nCONNECTED THROUGH THE WORK\nThe feed.\nTap In +\nFor you\nFollowing\nYour reposts\nSaved\n"
+  },
+  {
+    "phase": "after",
+    "route": "/feed",
+    "width": 360,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nCONNECTED THROUGH THE WORK\nThe feed.\nTap In +\nFor you\nFollowing\nYour reposts\nSaved\n"
+  },
+  {
+    "phase": "after",
+    "route": "/feed#discover",
+    "width": 1440,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nFeed\nDiscover\nJoin TAPPED IN\nTap In +\nJoin TAPPED INAlready tapped in? Log in\nYOUR "
+  },
+  {
+    "phase": "after",
+    "route": "/feed#discover",
+    "width": 1280,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nFeed\nDiscover\nJoin TAPPED IN\nTap In +\nJoin TAPPED INAlready tapped in? Log in\nYOUR "
+  },
+  {
+    "phase": "after",
+    "route": "/feed#discover",
+    "width": 1024,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nFeed\nDiscover\nJoin TAPPED IN\nTap In +\nJoin TAPPED INAlready tapped in? Log in\nYOUR "
+  },
+  {
+    "phase": "after",
+    "route": "/feed#discover",
+    "width": 768,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nYOUR PEOPLE. YOUR NEXT MOVE.\nDiscover.\n\nFind people, briefs, gigs and collaboration"
+  },
+  {
+    "phase": "after",
+    "route": "/feed#discover",
+    "width": 430,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nYOUR PEOPLE. YOUR NEXT MOVE.\nDiscover.\n\nFind people, briefs, gigs and collaboration"
+  },
+  {
+    "phase": "after",
+    "route": "/feed#discover",
+    "width": 390,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nYOUR PEOPLE. YOUR NEXT MOVE.\nDiscover.\n\nFind people, briefs, gigs and collaboration"
+  },
+  {
+    "phase": "after",
+    "route": "/feed#discover",
+    "width": 360,
+    "overflow": false,
+    "text": "TAPPED\nIN\nLog in\nYOUR PEOPLE. YOUR NEXT MOVE.\nDiscover.\n\nFind people, briefs, gigs and collaboration"
+  },
+  {
+    "phase": "after",
+    "route": "/login",
+    "width": 1440,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nWELCOME BACK\nLog in.\n\nSign in with your accou"
+  },
+  {
+    "phase": "after",
+    "route": "/login",
+    "width": 1280,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nWELCOME BACK\nLog in.\n\nSign in with your accou"
+  },
+  {
+    "phase": "after",
+    "route": "/login",
+    "width": 1024,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nWELCOME BACK\nLog in.\n\nSign in with your accou"
+  },
+  {
+    "phase": "after",
+    "route": "/login",
+    "width": 768,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nWELCOME BACK\nLog in.\n\nSign in with your accou"
+  },
+  {
+    "phase": "after",
+    "route": "/login",
+    "width": 430,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nWELCOME BACK\nLog in.\n\nSign in with your accou"
+  },
+  {
+    "phase": "after",
+    "route": "/login",
+    "width": 390,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nWELCOME BACK\nLog in.\n\nSign in with your accou"
+  },
+  {
+    "phase": "after",
+    "route": "/login",
+    "width": 360,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nWELCOME BACK\nLog in.\n\nSign in with your accou"
+  },
+  {
+    "phase": "after",
+    "route": "/signup",
+    "width": 1440,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nFIND YOUR PLACE IN THE INDUSTRY\nGet tapped in"
+  },
+  {
+    "phase": "after",
+    "route": "/signup",
+    "width": 1280,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nFIND YOUR PLACE IN THE INDUSTRY\nGet tapped in"
+  },
+  {
+    "phase": "after",
+    "route": "/signup",
+    "width": 1024,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nFIND YOUR PLACE IN THE INDUSTRY\nGet tapped in"
+  },
+  {
+    "phase": "after",
+    "route": "/signup",
+    "width": 768,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nFIND YOUR PLACE IN THE INDUSTRY\nGet tapped in"
+  },
+  {
+    "phase": "after",
+    "route": "/signup",
+    "width": 430,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nFIND YOUR PLACE IN THE INDUSTRY\nGet tapped in"
+  },
+  {
+    "phase": "after",
+    "route": "/signup",
+    "width": 390,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nFIND YOUR PLACE IN THE INDUSTRY\nGet tapped in"
+  },
+  {
+    "phase": "after",
+    "route": "/signup",
+    "width": 360,
+    "overflow": false,
+    "text": "TAPPED\nIN\nWho it’s for\nThe feed\nDiscover\nLog in\nTap in\nFIND YOUR PLACE IN THE INDUSTRY\nGet tapped in"
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "feed",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "discover",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "profile",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "settings",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "office",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "feed",
+    "width": 1280,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "discover",
+    "width": 1280,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "profile",
+    "width": 1280,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "settings",
+    "width": 1280,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "office",
+    "width": 1280,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "feed",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "discover",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "profile",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "settings",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "office",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "feed",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "discover",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "profile",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "settings",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "office",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "feed",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "discover",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "profile",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "settings",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "office",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "feed",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "discover",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "profile",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "settings",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "office",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "feed",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "discover",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "profile",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "settings",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "localFixture": true,
+    "view": "office",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "phase": "after",
+    "errors": []
+  }
+]

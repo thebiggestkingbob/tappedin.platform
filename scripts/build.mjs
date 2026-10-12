@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 let html=fs.readFileSync('web/app.html','utf8');
-const css=fs.readFileSync('web/upgrade.css','utf8')+'\n'+fs.readFileSync('web/community.css','utf8')+'\n'+fs.readFileSync('web/homepage.css','utf8')+'\n'+fs.readFileSync('web/platform.css','utf8');
+const css=fs.readFileSync('web/upgrade.css','utf8')+'\n'+fs.readFileSync('web/community.css','utf8')+'\n'+fs.readFileSync('web/homepage.css','utf8')+'\n'+fs.readFileSync('web/platform.css','utf8')+'\n'+fs.readFileSync('web/redesign.css','utf8');
 let client='const roleCategories='+fs.readFileSync('web/categories.json','utf8')+';\n'+fs.readFileSync('web/upgrade.js','utf8')+'\n'+fs.readFileSync('web/community.js','utf8');
 client=client.replace("demoMode=location.pathname==='/demo'","demoMode=false");
 // Bootstrap only after the production auth and navigation functions are installed.

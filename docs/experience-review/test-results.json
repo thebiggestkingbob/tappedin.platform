@@ -1,0 +1,47 @@
+[
+  {
+    "file": "tests/database-config.test.mjs",
+    "exitCode": 0,
+    "tests": 3
+  },
+  {
+    "file": "tests/experience.test.mjs",
+    "exitCode": 0,
+    "tests": 11
+  },
+  {
+    "file": "tests/homepage.test.mjs",
+    "exitCode": 0,
+    "tests": 4
+  },
+  {
+    "file": "tests/password-accounts.test.mjs",
+    "exitCode": 0,
+    "tests": 7
+  },
+  {
+    "file": "tests/platform-updates.test.mjs",
+    "exitCode": 0,
+    "tests": 8
+  },
+  {
+    "file": "tests/profile-presentation.test.mjs",
+    "exitCode": 0,
+    "tests": 3
+  },
+  {
+    "file": "tests/security.test.mjs",
+    "exitCode": 0,
+    "tests": 28
+  },
+  {
+    "file": "tests/setup.test.mjs",
+    "exitCode": 0,
+    "tests": 2
+  },
+  {
+    "file": "tests/vercel.test.mjs",
+    "exitCode": 0,
+    "tests": 10
+  }
+]

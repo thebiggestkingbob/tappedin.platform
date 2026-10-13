@@ -1,20 +1,21 @@
 import fs from 'node:fs';
 let html=fs.readFileSync('web/app.html','utf8');
-const css=fs.readFileSync('web/upgrade.css','utf8')+'\n'+fs.readFileSync('web/community.css','utf8')+'\n'+fs.readFileSync('web/homepage.css','utf8')+'\n'+fs.readFileSync('web/platform.css','utf8')+'\n'+fs.readFileSync('web/redesign.css','utf8');
-let client='const roleCategories='+fs.readFileSync('web/categories.json','utf8')+';\n'+fs.readFileSync('web/upgrade.js','utf8')+'\n'+fs.readFileSync('web/community.js','utf8');
+const css=fs.readFileSync('web/upgrade.css','utf8')+'\n'+fs.readFileSync('web/community.css','utf8')+'\n'+fs.readFileSync('web/homepage.css','utf8')+'\n'+fs.readFileSync('web/platform.css','utf8')+'\n'+fs.readFileSync('web/redesign.css','utf8')+'\n'+fs.readFileSync('web/experience.css','utf8');
+let client='const locationDirectory='+fs.readFileSync('web/locations.json','utf8')+';\nconst roleCategories='+fs.readFileSync('web/categories.json','utf8')+';\n'+fs.readFileSync('web/upgrade.js','utf8')+'\n'+fs.readFileSync('web/community.js','utf8');
 client=client.replace("demoMode=location.pathname==='/demo'","demoMode=false");
 // Bootstrap only after the production auth and navigation functions are installed.
 const boot=/startApp\(\)\.then\(async\(\)=>\{[^\n]*\);/;
 const start=client.match(boot)?.[0];if(!start)throw new Error('Startup not found');client=client.replace(boot,'');
-client+='\n'+fs.readFileSync('web/production.js','utf8')+'\n'+fs.readFileSync('web/homepage.js','utf8')+'\n'+fs.readFileSync('web/platform.js','utf8')+'\n'+start;
+client+='\n'+fs.readFileSync('web/production.js','utf8')+'\n'+fs.readFileSync('web/homepage.js','utf8')+'\n'+fs.readFileSync('web/platform.js','utf8')+'\n'+fs.readFileSync('web/experience.js','utf8')+'\n'+start;
 html=html.replace('</style>',css+'\n</style>').replace('</script>',client+'\n</script>');
 html=html.replace(/\/signout-with-chatgpt\?return_to=[^"']*/g,'/auth/logout').replace(/\/signin-with-chatgpt/g,'/auth/login').replace(/ →/g,'').replace(/Sample links lead to platform homepages/g,'').replace(/This is saved locally in the prototype\./g,'').replace(/This removes the local post/g,'This removes the post');
 html=html.replace(/<a[^>]*href="\/demo[^"]*"[^>]*>.*?<\/a>/g,'');
 for(const block of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new Function(block[1]);
-const domain=fs.readFileSync('worker/domain.mjs','utf8').replace(/export const /g,'const ');
+const locationSource='const LOCATION_DIRECTORY='+fs.readFileSync('web/locations.json','utf8')+';\n';
+const domain=locationSource+fs.readFileSync('worker/domain.mjs','utf8').replace(/export const /g,'const ');
 let worker=fs.readFileSync('worker/index.mjs','utf8').replace("import { workTypes,cities,roles,platforms } from './domain.mjs';",domain);
 worker=worker.replace("'/signup','/demo'","'/signup'");
-worker=fs.readFileSync('worker/platform.mjs','utf8')+'\n'+fs.readFileSync('worker/office-files.mjs','utf8')+'\n'+fs.readFileSync('worker/community.mjs','utf8')+'\n'+worker;
+worker=fs.readFileSync('worker/experience.mjs','utf8')+'\n'+fs.readFileSync('worker/platform.mjs','utf8')+'\n'+fs.readFileSync('worker/office-files.mjs','utf8')+'\n'+fs.readFileSync('worker/community.mjs','utf8')+'\n'+worker;
 worker='const HTML='+JSON.stringify(html)+';\n'+worker;
 fs.mkdirSync('dist/server',{recursive:true});fs.writeFileSync('dist/server/index.js',worker);
 fs.mkdirSync('public',{recursive:true});fs.writeFileSync('public/.gitkeep','');

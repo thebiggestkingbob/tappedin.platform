@@ -1,0 +1,228 @@
+{
+  "checks": [
+    {
+      "name": "feed",
+      "width": 1440,
+      "scroll": 1440,
+      "offenders": []
+    },
+    {
+      "name": "discovery",
+      "width": 1440,
+      "scroll": 1440,
+      "offenders": []
+    },
+    {
+      "name": "profile",
+      "width": 1440,
+      "scroll": 1440,
+      "offenders": []
+    },
+    {
+      "name": "inbox",
+      "width": 1440,
+      "scroll": 1440,
+      "offenders": []
+    },
+    {
+      "name": "office",
+      "width": 1440,
+      "scroll": 1440,
+      "offenders": []
+    },
+    {
+      "name": "feed",
+      "width": 1280,
+      "scroll": 1280,
+      "offenders": []
+    },
+    {
+      "name": "discovery",
+      "width": 1280,
+      "scroll": 1280,
+      "offenders": []
+    },
+    {
+      "name": "profile",
+      "width": 1280,
+      "scroll": 1280,
+      "offenders": []
+    },
+    {
+      "name": "inbox",
+      "width": 1280,
+      "scroll": 1280,
+      "offenders": []
+    },
+    {
+      "name": "office",
+      "width": 1280,
+      "scroll": 1280,
+      "offenders": []
+    },
+    {
+      "name": "feed",
+      "width": 1024,
+      "scroll": 1024,
+      "offenders": []
+    },
+    {
+      "name": "discovery",
+      "width": 1024,
+      "scroll": 1024,
+      "offenders": []
+    },
+    {
+      "name": "profile",
+      "width": 1024,
+      "scroll": 1024,
+      "offenders": []
+    },
+    {
+      "name": "inbox",
+      "width": 1024,
+      "scroll": 1024,
+      "offenders": []
+    },
+    {
+      "name": "office",
+      "width": 1024,
+      "scroll": 1024,
+      "offenders": []
+    },
+    {
+      "name": "feed",
+      "width": 768,
+      "scroll": 768,
+      "offenders": []
+    },
+    {
+      "name": "discovery",
+      "width": 768,
+      "scroll": 768,
+      "offenders": []
+    },
+    {
+      "name": "profile",
+      "width": 768,
+      "scroll": 768,
+      "offenders": []
+    },
+    {
+      "name": "inbox",
+      "width": 768,
+      "scroll": 768,
+      "offenders": []
+    },
+    {
+      "name": "office",
+      "width": 768,
+      "scroll": 768,
+      "offenders": []
+    },
+    {
+      "name": "feed",
+      "width": 430,
+      "scroll": 430,
+      "offenders": []
+    },
+    {
+      "name": "discovery",
+      "width": 430,
+      "scroll": 430,
+      "offenders": []
+    },
+    {
+      "name": "profile",
+      "width": 430,
+      "scroll": 430,
+      "offenders": []
+    },
+    {
+      "name": "inbox",
+      "width": 430,
+      "scroll": 430,
+      "offenders": []
+    },
+    {
+      "name": "office",
+      "width": 430,
+      "scroll": 430,
+      "offenders": []
+    },
+    {
+      "name": "feed",
+      "width": 390,
+      "scroll": 390,
+      "offenders": []
+    },
+    {
+      "name": "discovery",
+      "width": 390,
+      "scroll": 390,
+      "offenders": []
+    },
+    {
+      "name": "profile",
+      "width": 390,
+      "scroll": 390,
+      "offenders": []
+    },
+    {
+      "name": "inbox",
+      "width": 390,
+      "scroll": 390,
+      "offenders": []
+    },
+    {
+      "name": "office",
+      "width": 390,
+      "scroll": 390,
+      "offenders": []
+    },
+    {
+      "name": "feed",
+      "width": 360,
+      "scroll": 360,
+      "offenders": []
+    },
+    {
+      "name": "discovery",
+      "width": 360,
+      "scroll": 360,
+      "offenders": []
+    },
+    {
+      "name": "profile",
+      "width": 360,
+      "scroll": 360,
+      "offenders": []
+    },
+    {
+      "name": "inbox",
+      "width": 360,
+      "scroll": 360,
+      "offenders": []
+    },
+    {
+      "name": "office",
+      "width": 360,
+      "scroll": 360,
+      "offenders": []
+    }
+  ],
+  "errors": [],
+  "flows": [
+    "snapshot",
+    "future-date work with one image",
+    "highlight persistence",
+    "contacts add",
+    "task edit",
+    "budget proposal",
+    "password form",
+    "non-agent invitation acceptance",
+    "calendar star",
+    "city and country profile save",
+    "brief with one image"
+  ]
+}

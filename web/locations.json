@@ -1,0 +1,554 @@
+[
+  {
+    "city": "Johannesburg",
+    "country": "South Africa"
+  },
+  {
+    "city": "Pretoria",
+    "country": "South Africa"
+  },
+  {
+    "city": "Cape Town",
+    "country": "South Africa"
+  },
+  {
+    "city": "Durban",
+    "country": "South Africa"
+  },
+  {
+    "city": "Gqeberha",
+    "country": "South Africa"
+  },
+  {
+    "city": "East London",
+    "country": "South Africa"
+  },
+  {
+    "city": "Bloemfontein",
+    "country": "South Africa"
+  },
+  {
+    "city": "Polokwane",
+    "country": "South Africa"
+  },
+  {
+    "city": "Mbombela",
+    "country": "South Africa"
+  },
+  {
+    "city": "Rustenburg",
+    "country": "South Africa"
+  },
+  {
+    "city": "Kimberley",
+    "country": "South Africa"
+  },
+  {
+    "city": "Soweto",
+    "country": "South Africa"
+  },
+  {
+    "city": "Sandton",
+    "country": "South Africa"
+  },
+  {
+    "city": "Centurion",
+    "country": "South Africa"
+  },
+  {
+    "city": "Stellenbosch",
+    "country": "South Africa"
+  },
+  {
+    "city": "Paarl",
+    "country": "South Africa"
+  },
+  {
+    "city": "George",
+    "country": "South Africa"
+  },
+  {
+    "city": "Mossel Bay",
+    "country": "South Africa"
+  },
+  {
+    "city": "Knysna",
+    "country": "South Africa"
+  },
+  {
+    "city": "Oudtshoorn",
+    "country": "South Africa"
+  },
+  {
+    "city": "Worcester",
+    "country": "South Africa"
+  },
+  {
+    "city": "Hermanus",
+    "country": "South Africa"
+  },
+  {
+    "city": "Richards Bay",
+    "country": "South Africa"
+  },
+  {
+    "city": "Pietermaritzburg",
+    "country": "South Africa"
+  },
+  {
+    "city": "Newcastle",
+    "country": "South Africa"
+  },
+  {
+    "city": "Ladysmith",
+    "country": "South Africa"
+  },
+  {
+    "city": "Umtata",
+    "country": "South Africa"
+  },
+  {
+    "city": "Mthatha",
+    "country": "South Africa"
+  },
+  {
+    "city": "Queenstown",
+    "country": "South Africa"
+  },
+  {
+    "city": "Mahikeng",
+    "country": "South Africa"
+  },
+  {
+    "city": "Potchefstroom",
+    "country": "South Africa"
+  },
+  {
+    "city": "Klerksdorp",
+    "country": "South Africa"
+  },
+  {
+    "city": "Welkom",
+    "country": "South Africa"
+  },
+  {
+    "city": "Upington",
+    "country": "South Africa"
+  },
+  {
+    "city": "Emalahleni",
+    "country": "South Africa"
+  },
+  {
+    "city": "Secunda",
+    "country": "South Africa"
+  },
+  {
+    "city": "Tzaneen",
+    "country": "South Africa"
+  },
+  {
+    "city": "Thohoyandou",
+    "country": "South Africa"
+  },
+  {
+    "city": "Louis Trichardt",
+    "country": "South Africa"
+  },
+  {
+    "city": "Makhado",
+    "country": "South Africa"
+  },
+  {
+    "city": "Gaborone",
+    "country": "Botswana"
+  },
+  {
+    "city": "Francistown",
+    "country": "Botswana"
+  },
+  {
+    "city": "Maun",
+    "country": "Botswana"
+  },
+  {
+    "city": "Windhoek",
+    "country": "Namibia"
+  },
+  {
+    "city": "Swakopmund",
+    "country": "Namibia"
+  },
+  {
+    "city": "Walvis Bay",
+    "country": "Namibia"
+  },
+  {
+    "city": "Harare",
+    "country": "Zimbabwe"
+  },
+  {
+    "city": "Bulawayo",
+    "country": "Zimbabwe"
+  },
+  {
+    "city": "Victoria Falls",
+    "country": "Zimbabwe"
+  },
+  {
+    "city": "Lusaka",
+    "country": "Zambia"
+  },
+  {
+    "city": "Livingstone",
+    "country": "Zambia"
+  },
+  {
+    "city": "Ndola",
+    "country": "Zambia"
+  },
+  {
+    "city": "Maputo",
+    "country": "Mozambique"
+  },
+  {
+    "city": "Beira",
+    "country": "Mozambique"
+  },
+  {
+    "city": "Nampula",
+    "country": "Mozambique"
+  },
+  {
+    "city": "Maseru",
+    "country": "Lesotho"
+  },
+  {
+    "city": "Mbabane",
+    "country": "Eswatini"
+  },
+  {
+    "city": "Manzini",
+    "country": "Eswatini"
+  },
+  {
+    "city": "Lilongwe",
+    "country": "Malawi"
+  },
+  {
+    "city": "Blantyre",
+    "country": "Malawi"
+  },
+  {
+    "city": "Luanda",
+    "country": "Angola"
+  },
+  {
+    "city": "Lagos",
+    "country": "Nigeria"
+  },
+  {
+    "city": "Abuja",
+    "country": "Nigeria"
+  },
+  {
+    "city": "Port Harcourt",
+    "country": "Nigeria"
+  },
+  {
+    "city": "Ibadan",
+    "country": "Nigeria"
+  },
+  {
+    "city": "Accra",
+    "country": "Ghana"
+  },
+  {
+    "city": "Kumasi",
+    "country": "Ghana"
+  },
+  {
+    "city": "Nairobi",
+    "country": "Kenya"
+  },
+  {
+    "city": "Mombasa",
+    "country": "Kenya"
+  },
+  {
+    "city": "Kisumu",
+    "country": "Kenya"
+  },
+  {
+    "city": "Dar es Salaam",
+    "country": "Tanzania"
+  },
+  {
+    "city": "Dodoma",
+    "country": "Tanzania"
+  },
+  {
+    "city": "Arusha",
+    "country": "Tanzania"
+  },
+  {
+    "city": "Kampala",
+    "country": "Uganda"
+  },
+  {
+    "city": "Kigali",
+    "country": "Rwanda"
+  },
+  {
+    "city": "Addis Ababa",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Dakar",
+    "country": "Senegal"
+  },
+  {
+    "city": "Casablanca",
+    "country": "Morocco"
+  },
+  {
+    "city": "Marrakesh",
+    "country": "Morocco"
+  },
+  {
+    "city": "Rabat",
+    "country": "Morocco"
+  },
+  {
+    "city": "Cairo",
+    "country": "Egypt"
+  },
+  {
+    "city": "Alexandria",
+    "country": "Egypt"
+  },
+  {
+    "city": "London",
+    "country": "United Kingdom"
+  },
+  {
+    "city": "Manchester",
+    "country": "United Kingdom"
+  },
+  {
+    "city": "Birmingham",
+    "country": "United Kingdom"
+  },
+  {
+    "city": "Bristol",
+    "country": "United Kingdom"
+  },
+  {
+    "city": "Glasgow",
+    "country": "United Kingdom"
+  },
+  {
+    "city": "Edinburgh",
+    "country": "United Kingdom"
+  },
+  {
+    "city": "New York",
+    "country": "United States"
+  },
+  {
+    "city": "Los Angeles",
+    "country": "United States"
+  },
+  {
+    "city": "Atlanta",
+    "country": "United States"
+  },
+  {
+    "city": "Chicago",
+    "country": "United States"
+  },
+  {
+    "city": "Miami",
+    "country": "United States"
+  },
+  {
+    "city": "Houston",
+    "country": "United States"
+  },
+  {
+    "city": "Austin",
+    "country": "United States"
+  },
+  {
+    "city": "Nashville",
+    "country": "United States"
+  },
+  {
+    "city": "San Francisco",
+    "country": "United States"
+  },
+  {
+    "city": "Las Vegas",
+    "country": "United States"
+  },
+  {
+    "city": "Toronto",
+    "country": "Canada"
+  },
+  {
+    "city": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "city": "Montreal",
+    "country": "Canada"
+  },
+  {
+    "city": "Paris",
+    "country": "France"
+  },
+  {
+    "city": "Lyon",
+    "country": "France"
+  },
+  {
+    "city": "Berlin",
+    "country": "Germany"
+  },
+  {
+    "city": "Hamburg",
+    "country": "Germany"
+  },
+  {
+    "city": "Munich",
+    "country": "Germany"
+  },
+  {
+    "city": "Amsterdam",
+    "country": "Netherlands"
+  },
+  {
+    "city": "Rotterdam",
+    "country": "Netherlands"
+  },
+  {
+    "city": "Madrid",
+    "country": "Spain"
+  },
+  {
+    "city": "Barcelona",
+    "country": "Spain"
+  },
+  {
+    "city": "Lisbon",
+    "country": "Portugal"
+  },
+  {
+    "city": "Porto",
+    "country": "Portugal"
+  },
+  {
+    "city": "Rome",
+    "country": "Italy"
+  },
+  {
+    "city": "Milan",
+    "country": "Italy"
+  },
+  {
+    "city": "Dublin",
+    "country": "Ireland"
+  },
+  {
+    "city": "Sydney",
+    "country": "Australia"
+  },
+  {
+    "city": "Melbourne",
+    "country": "Australia"
+  },
+  {
+    "city": "Brisbane",
+    "country": "Australia"
+  },
+  {
+    "city": "Perth",
+    "country": "Australia"
+  },
+  {
+    "city": "Auckland",
+    "country": "New Zealand"
+  },
+  {
+    "city": "Wellington",
+    "country": "New Zealand"
+  },
+  {
+    "city": "Dubai",
+    "country": "United Arab Emirates"
+  },
+  {
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates"
+  },
+  {
+    "city": "Mumbai",
+    "country": "India"
+  },
+  {
+    "city": "New Delhi",
+    "country": "India"
+  },
+  {
+    "city": "Bengaluru",
+    "country": "India"
+  },
+  {
+    "city": "Tokyo",
+    "country": "Japan"
+  },
+  {
+    "city": "Osaka",
+    "country": "Japan"
+  },
+  {
+    "city": "Beijing",
+    "country": "China"
+  },
+  {
+    "city": "Shanghai",
+    "country": "China"
+  },
+  {
+    "city": "Singapore",
+    "country": "Singapore"
+  },
+  {
+    "city": "São Paulo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Rio de Janeiro",
+    "country": "Brazil"
+  },
+  {
+    "city": "Mexico City",
+    "country": "Mexico"
+  },
+  {
+    "city": "Buenos Aires",
+    "country": "Argentina"
+  },
+  {
+    "city": "Seoul",
+    "country": "South Korea"
+  },
+  {
+    "city": "Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "city": "Bangkok",
+    "country": "Thailand"
+  }
+]

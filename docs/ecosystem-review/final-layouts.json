@@ -1,0 +1,355 @@
+{
+  "checks": [
+    {
+      "view": "homepage",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "homepage",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "homepage",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "homepage",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "homepage",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "homepage",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "homepage",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "view": "feed",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "discover",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "profile",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "inbox",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "office",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "profile-highlights",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "profile-moments",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "profile-awards",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "profile-rates",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "view": "feed",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "discover",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "profile",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "inbox",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "office",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "profile-highlights",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "profile-moments",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "profile-awards",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "profile-rates",
+      "width": 1280,
+      "scroll": 1280
+    },
+    {
+      "view": "feed",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "discover",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "profile",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "inbox",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "office",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "profile-highlights",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "profile-moments",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "profile-awards",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "profile-rates",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "view": "feed",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "discover",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "profile",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "inbox",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "office",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "profile-highlights",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "profile-moments",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "profile-awards",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "profile-rates",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "view": "feed",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "discover",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "profile",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "inbox",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "office",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "profile-highlights",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "profile-moments",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "profile-awards",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "profile-rates",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "view": "feed",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "discover",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "profile",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "inbox",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "office",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "profile-highlights",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "profile-moments",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "profile-awards",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "profile-rates",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "view": "feed",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "view": "discover",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "view": "profile",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "view": "inbox",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "view": "office",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "view": "profile-highlights",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "view": "profile-moments",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "view": "profile-awards",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "view": "profile-rates",
+      "width": 360,
+      "scroll": 360
+    }
+  ],
+  "errors": []
+}

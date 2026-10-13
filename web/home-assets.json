@@ -1,0 +1,54 @@
+{
+  "credits-mobile": {
+    "width": 780,
+    "height": 1660
+  },
+  "credits": {
+    "width": 2880,
+    "height": 1660
+  },
+  "discover-mobile": {
+    "width": 780,
+    "height": 1736
+  },
+  "discover": {
+    "width": 1900,
+    "height": 1856
+  },
+  "profile-mobile": {
+    "width": 780,
+    "height": 1856
+  },
+  "profile": {
+    "width": 1900,
+    "height": 1856
+  },
+  "support-mobile": {
+    "width": 716,
+    "height": 1098
+  },
+  "support": {
+    "width": 1804,
+    "height": 1194
+  },
+  "team-mobile": {
+    "width": 780,
+    "height": 1856
+  },
+  "team": {
+    "width": 1900,
+    "height": 1856
+  },
+  "workspace-mobile": {
+    "width": 780,
+    "height": 1856
+  },
+  "workspace-wide": {
+    "width": 2880,
+    "height": 2000
+  },
+  "workspace": {
+    "width": 1900,
+    "height": 1856
+  }
+}

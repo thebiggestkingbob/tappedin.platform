@@ -32,3 +32,11 @@ test('public preview rendering makes no API requests and assigns no account/memb
  assert.ok(!/\b(account|state|route|view)\s*=/.test(source));
  const html=render();assert.ok(html.includes('loading="lazy"'));assert.ok(html.includes('fetchpriority="high"'));assert.ok(html.includes('width="662" height="680"'));
 });
+
+test('current preview captures are high-resolution lossless images with accurate reserved dimensions',()=>{
+ const dims=JSON.parse(fs.readFileSync(new URL('../web/home-assets.json',import.meta.url),'utf8'));
+ assert.equal(Object.keys(dims).length,13);
+ for(const [name,size] of Object.entries(dims)){const bytes=fs.readFileSync(new URL('../public/homepage/'+name+'.webp',import.meta.url));assert.equal(bytes.toString('ascii',12,16),'VP8L');const bits=bytes.readUInt32LE(21);assert.equal(size.width,1+(bits&0x3fff));assert.equal(size.height,1+((bits>>>14)&0x3fff));assert.ok(size.width>=(name.includes('-mobile')?700:1400));}
+ const c=vm.createContext({homeAssetDimensions:dims,siteTop:()=>'',icon:()=>'',renderLanding:()=>''});vm.runInContext(source,c);
+ const html=vm.runInContext('homeImage("profile","Profile",760,740)',c);assert.ok(html.includes('width="'+dims.profile.width+'" height="'+dims.profile.height+'"'));assert.ok(html.includes('width="'+dims['profile-mobile'].width+'" height="'+dims['profile-mobile'].height+'"'));
+});

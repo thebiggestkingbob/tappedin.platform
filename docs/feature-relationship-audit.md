@@ -213,3 +213,19 @@ The Office creation endpoint now checks the **server-side owner** of a linked op
 - GitHub's commit workflow-run lookup returned no PR-triggered runs for the checked commit; CI is **not verified passing**.
 
 **Outstanding release gates:** behavioral tests against a real test database, concurrency and uniqueness migration validation, CI test/build success, complete two-account browser QA, contextual messages, and reliable notification delivery. Production must not be merged or deployed before these are checked.
+
+## Release-hardening pass — 2026-11-07
+
+- Added per-user hourly negotiation creation limit (20) and a maximum of 30 offer revisions to reduce unbounded data growth and abuse.
+- Replaced all-negotiations scans in the negotiation inbox and Office activity feed with participant-scoped `owner/recipient` SQL queries; retained row-level authorization for individual negotiation reads and updates.
+- Updated `tests/office-activity.test.mjs` for the scoped query.
+- Added read-only `supabase/linked-workspace-preflight.sql` to list duplicate linked source IDs and orphaned source references before applying `project_linked_source_unique`.
+- Both changed JS modules parsed successfully.
+
+### Release verification still required
+
+1. Inspect failing GitHub Actions run logs; fix actual failures; obtain a green full `npm test` and `npm run build` run. Automatic push checks remain disabled to prevent repeated notification emails.
+2. Run database preflight in a nonproduction/staging environment; reconcile duplicates before applying unique index. Confirm concurrent requests yield one project and one conflict.
+3. Run two distinct-account tests: create offer, counter, accept, create workspace, explicitly invite, accept invitation, and verify privacy for a third account.
+4. Validate Office Activity and navigation, accepted revision snapshot, booking/opportunity handoffs, and absence of unintended payments or automatic agreement signatures.
+5. Only after approval: coordinate migration and production release. No production merge/deploy in this development pass.

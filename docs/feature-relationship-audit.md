@@ -203,3 +203,13 @@ The Office creation endpoint now checks the **server-side owner** of a linked op
 - Added `.github/workflows/development-checks.yml` to run `npm ci`, `npm test`, `npm run build`, and `node --check dist/server/index.js` on PRs and feature-branch pushes. **No successful workflow run has been confirmed.**
 
 **Release gate:** inspect the GitHub Actions results and repair failures; validate real database authorization and concurrent project creation; review duplicate linked sources before applying the unique index; perform two-account preview QA; confirm negotiated agreement/booking handoffs and privacy. Production stays unchanged.
+
+## Implementation update — agreement snapshot and regression maintenance
+
+- Linked Office projects now store an `agreementSnapshot` derived from the **accepted** negotiation revision, including both parties, revision number, acceptance timestamp and structured terms.
+- The Office overview shows the agreed terms separately from the project's editable scope. No payment verification is implied.
+- Updated stale opportunity handoff test assertions after the optional invitation workflow changed its UI copy.
+- Added `tests/accepted-agreement-snapshot.test.mjs` and checked syntax for the edited backend and frontend modules.
+- GitHub's commit workflow-run lookup returned no PR-triggered runs for the checked commit; CI is **not verified passing**.
+
+**Outstanding release gates:** behavioral tests against a real test database, concurrency and uniqueness migration validation, CI test/build success, complete two-account browser QA, contextual messages, and reliable notification delivery. Production must not be merged or deployed before these are checked.

@@ -164,3 +164,14 @@ The Office creation endpoint now checks the **server-side owner** of a linked op
 - The modified backend JavaScript parsed after replacing its import/export wrappers for syntax checking; no integration tests or production build have been executed.
 
 **Release gate remains closed:** implement bilateral negotiation and agreement revision history; secure message context linking; atomic workspace uniqueness; full test/build and two-account preview QA. Production must remain unchanged until these pass.
+
+## Implementation update — first bilateral Negotiation Room
+
+- Added `/api/v3/negotiations` and `/api/v3/negotiations/:id` endpoints for private, authenticated two-party offers.
+- Each offer captures experience, scope, date, time, location and ZAR rate; counters append numbered revisions with author and timestamp.
+- The author cannot accept or counter their own latest offer; only the other participant can accept, decline or counter. The latest accepted revision is recorded.
+- The update endpoint requires the caller's current version and uses a conditional SQL UPDATE to reject stale writes.
+- Office now has a Negotiations tab, inbox refresh, new-offer form, revision review and counter/accept/decline actions. The tab fetches negotiations on entry.
+- Added source assertions in `tests/negotiation-room.test.mjs`. JS syntax parsed for the updated backend and UI modules.
+
+**Known limitations:** there is no negotiation-to-booking/project handoff yet, no push notifications or negotiation context in direct messages, no transactional immutability of the revision history against privileged database edits, and no executed end-to-end test suite. This is an initial functional implementation, not a verified production release. Source-level tests are not behavioral authorization tests. Atomic uniqueness for linked workspaces is still outstanding.

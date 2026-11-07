@@ -175,3 +175,12 @@ The Office creation endpoint now checks the **server-side owner** of a linked op
 - Added source assertions in `tests/negotiation-room.test.mjs`. JS syntax parsed for the updated backend and UI modules.
 
 **Known limitations:** there is no negotiation-to-booking/project handoff yet, no push notifications or negotiation context in direct messages, no transactional immutability of the revision history against privileged database edits, and no executed end-to-end test suite. This is an initial functional implementation, not a verified production release. Source-level tests are not behavioral authorization tests. Atomic uniqueness for linked workspaces is still outstanding.
+
+## Implementation update — accepted negotiation → Office and schema uniqueness
+
+- Office project creation now accepts a linked `negotiation` source only for the negotiation initiator, and only after a revision is explicitly accepted.
+- The project form can prefill from the latest agreed negotiation terms; the negotiation dialog can create or reopen its workspace, and the project links back to Negotiations.
+- Added `project_linked_source_unique` partial unique expression index to `supabase/setup.sql` so PostgreSQL can enforce one linked project per source under concurrent writes. **Schema change is committed only and has not been applied.** Existing duplicate records must be identified and reconciled before running the setup.
+- Added `tests/negotiation-office-handoff.test.mjs`. The changed JavaScript modules passed syntax parsing.
+
+**Important:** this does not auto-create a booking, auto-invite the counterparty, process payment, or generate a signed legal contract. The current project scope prefill does not itself lock or independently verify the accepted agreement terms; the negotiation's accepted revision remains the reference. Further work is needed on contextual messaging, event/activity alerts, transaction-aware duplicate errors, complete Node/build tests and two-account preview QA. Do not deploy to production until all release gates pass.

@@ -118,3 +118,13 @@ No changes to production, no destructive migrations, no invented payments or ver
 5. **Two-account tests:** accept bid → convert once → verify both permissions; accept booking → convert only when requested; reject/withdraw → cannot convert; revoke agent → denied; unrelated third user → denied; duplicate/retry → no duplicate project.
 
 No functional changes have been made in this pass. This trace provides the implementation contract for a scoped engineering PR.
+
+## Implementation update — first controlled handoff
+
+On this review branch, the opportunity owner now sees **Create linked workspace** when the brief has an accepted application. The Office create-project form prefills the brief title, description and linked opportunity, and explains that accepted applicants still require an explicit team invitation. This is a **manual, owner-confirmed handoff**, not automatic application-to-project conversion or a bilateral contract.
+
+Added static regression checks for the owner guard and handoff affordance. Existing invoice manual-payment disclosures and their checks remain in the branch.
+
+**Outstanding before merge:** run the production build and complete test suite; verify the new UI in a Vercel preview with two accounts. The current tool environment could not clone GitHub (DNS unavailable), so tests have not been run. Also inspect idempotency and authorization of the server-side linked-project creation path before building automated conversion; do not infer the client-side guard is a security boundary.
+
+**Remaining priorities:** structured two-party negotiation with revision history and explicit consent; contextual message/work cross-links; status propagation between opportunity, booking, project and invoices; acceptance and permission regression tests. No database migration or production change has been made.

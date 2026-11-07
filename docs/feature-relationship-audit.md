@@ -134,3 +134,13 @@ Added static regression checks for the owner guard and handoff affordance. Exist
 The Office creation endpoint now checks the **server-side owner** of a linked opportunity, requires at least one **Accepted** application on that brief, and rejects another project already linked to the same brief. The brief modal hides its create-workspace action when the current Office list already contains a linked project. Added static checks for these safeguards.
 
 **Important limitation:** the duplicate check is a read-before-write guard, not an atomic uniqueness guarantee; concurrent requests may still race. Before production release, enforce uniqueness transactionally or via a schema-level unique constraint suitable for the deployed database. The linked project still requires manual invitations and is not yet a mutually accepted negotiation agreement. No runtime or two-account tests have been executed.
+
+## Implementation update — source security and return navigation
+
+- The backend now verifies ownership for **all** linked source records (work posts and briefs), not just opportunities.
+- The Create Project selector only shows work posts and briefs owned by the signed-in member.
+- An owned brief with an existing linked project now offers **Open linked workspace**, returning directly to the same Office record.
+- Static source assertions added for these paths.
+- Syntax of the three edited JavaScript modules (`web/upgrade.js`, `web/community.js`, `worker/community.mjs`) was parsed successfully in the connector execution environment; six source-level assertions were also checked. This is **not** equivalent to running the repository's Node test suite, build or production browser tests.
+
+**Outstanding:** atomic uniqueness, two-account acceptance tests, and the actual Negotiation Room/booking conversion. Do not merge until those checks and a preview deployment are completed.

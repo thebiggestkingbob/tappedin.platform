@@ -6,7 +6,7 @@ const client=readFileSync(new URL('../web/community.js',import.meta.url),'utf8')
 
 test('Office activity only includes participant negotiations and own projects',()=>{
  assert.match(backend,/path==='\/api\/v3\/office-activity'/);
- assert.match(backend,/filter\(n=>n\.from===id\|\|n\.to===id\)/);
+ assert.match(backend,/kind = 'negotiation' AND \(owner = \? OR recipient = \?\)/);
  assert.match(backend,/filter\(p=>p\.owner===id\|\|p\.members\?\.some\(m=>m\.person===id\)\)/);
 });
 test('activity flags action-required items without changing project membership',()=>{

@@ -13,8 +13,8 @@ test('accepted brief exposes explicit linked-workspace action', () => {
 
 test('linked project creation is owner-guarded and does not silently invite people', () => {
   assert.match(office, /o\.id===sourceId&&o\.by==='me'/);
-  assert.match(office, /Only the brief owner can start a linked workspace/);
-  assert.match(office, /creating the workspace does not automatically grant access or confirm new terms/);
+  assert.match(office, /Only an eligible source owner can start a linked workspace/);
+  assert.match(office, /Inviting someone does not grant access until they accept/);
   assert.match(office, /linked:document\.getElementById\('project-linked'\)\.value/);
 });
 

@@ -30,3 +30,14 @@ test('server rejects an already linked workspace and UI hides repeated creation'
   assert.match(backend, /A workspace is already linked to this brief/);
   assert.match(opportunity, /!officeProjects\.some\(p=>p\.linked===id/);
 });
+
+test('linked work picker lists only owned posts and briefs', () => {
+  assert.match(office, /state\.posts\.filter\(p=>p\.type==='work'&&p\.by==='me'\)/);
+  assert.match(office, /state\.opps\.filter\(p=>p\.by==='me'\)/);
+  assert.match(backend, /Only the owner can link this work to a new workspace/);
+});
+
+test('existing linked workspace is navigable from the source brief', () => {
+  assert.match(opportunity, /Open linked workspace/);
+  assert.match(opportunity, /openProject\(/);
+});

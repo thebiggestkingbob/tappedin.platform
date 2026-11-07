@@ -128,3 +128,9 @@ Added static regression checks for the owner guard and handoff affordance. Exist
 **Outstanding before merge:** run the production build and complete test suite; verify the new UI in a Vercel preview with two accounts. The current tool environment could not clone GitHub (DNS unavailable), so tests have not been run. Also inspect idempotency and authorization of the server-side linked-project creation path before building automated conversion; do not infer the client-side guard is a security boundary.
 
 **Remaining priorities:** structured two-party negotiation with revision history and explicit consent; contextual message/work cross-links; status propagation between opportunity, booking, project and invoices; acceptance and permission regression tests. No database migration or production change has been made.
+
+## Implementation update — server-side handoff safeguards
+
+The Office creation endpoint now checks the **server-side owner** of a linked opportunity, requires at least one **Accepted** application on that brief, and rejects another project already linked to the same brief. The brief modal hides its create-workspace action when the current Office list already contains a linked project. Added static checks for these safeguards.
+
+**Important limitation:** the duplicate check is a read-before-write guard, not an atomic uniqueness guarantee; concurrent requests may still race. Before production release, enforce uniqueness transactionally or via a schema-level unique constraint suitable for the deployed database. The linked project still requires manual invitations and is not yet a mutually accepted negotiation agreement. No runtime or two-account tests have been executed.

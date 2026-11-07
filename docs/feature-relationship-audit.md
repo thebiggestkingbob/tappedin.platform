@@ -155,3 +155,12 @@ The Office creation endpoint now checks the **server-side owner** of a linked op
 - Parsed the updated worker and browser JS and the inline app script without syntax errors using a JavaScript parser.
 
 **Release blockers:** the duplicate-project read check is not atomic; no transactionally enforced uniqueness yet. Booking acceptance is not itself a bilateral negotiated agreement, and creating the workspace does not auto-invite the booked professional. Source-level assertions and syntax parsing do not replace executing the full Node test suite, build or two-account browser verification. The Negotiation Room, immutable agreement revisions and activity aggregation are still unimplemented.
+
+## Implementation update — forward-only workflow decisions
+
+- Booking transitions are now limited to `Requested → Accepted | Declined | Cancelled` and `Accepted → Completed | Cancelled`, retaining recipient and delegated-agent authorization checks.
+- Application decisions now require the current status to be `Sent`; this prevents accepting/declining a withdrawn or previously decided application and prevents withdrawal after acceptance.
+- Added source-level regression checks in `tests/workflow-state-transitions.test.mjs`.
+- The modified backend JavaScript parsed after replacing its import/export wrappers for syntax checking; no integration tests or production build have been executed.
+
+**Release gate remains closed:** implement bilateral negotiation and agreement revision history; secure message context linking; atomic workspace uniqueness; full test/build and two-account preview QA. Production must remain unchanged until these pass.

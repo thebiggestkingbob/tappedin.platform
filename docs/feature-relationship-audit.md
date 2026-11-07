@@ -144,3 +144,14 @@ The Office creation endpoint now checks the **server-side owner** of a linked op
 - Syntax of the three edited JavaScript modules (`web/upgrade.js`, `web/community.js`, `worker/community.mjs`) was parsed successfully in the connector execution environment; six source-level assertions were also checked. This is **not** equivalent to running the repository's Node test suite, build or production browser tests.
 
 **Outstanding:** atomic uniqueness, two-account acceptance tests, and the actual Negotiation Room/booking conversion. Do not merge until those checks and a preview deployment are completed.
+
+## Implementation update — accepted booking ↔ Office handoff
+
+- The Office backend now accepts `requests` as a linked project source **only when the authenticated caller is the booking requester and the booking status is Accepted**. It rejects a second linked project found for that booking.
+- The project creator lists the requester's accepted bookings, prefills the booking title and notes, and clearly states that the counterparty must be invited separately.
+- The booking list now provides **Create linked workspace** for eligible requester-side accepted bookings, and **Open linked workspace** when a linked project exists.
+- Project overview navigation now returns to Office Bookings for linked booking sources.
+- Added `tests/booking-office-handoff.test.mjs` with static source assertions.
+- Parsed the updated worker and browser JS and the inline app script without syntax errors using a JavaScript parser.
+
+**Release blockers:** the duplicate-project read check is not atomic; no transactionally enforced uniqueness yet. Booking acceptance is not itself a bilateral negotiated agreement, and creating the workspace does not auto-invite the booked professional. Source-level assertions and syntax parsing do not replace executing the full Node test suite, build or two-account browser verification. The Negotiation Room, immutable agreement revisions and activity aggregation are still unimplemented.

@@ -118,6 +118,12 @@ CREATE OR REPLACE FUNCTION tapped_internal.json_extract(doc text,p text) RETURNS
 CREATE OR REPLACE FUNCTION tapped_internal.json_each(doc text,p text) RETURNS TABLE(value text) LANGUAGE sql IMMUTABLE STRICT AS $$ SELECT CASE jsonb_typeof(v) WHEN 'string' THEN v #>> '{}' ELSE v::text END FROM jsonb_array_elements(COALESCE(doc::jsonb #> tapped_internal.json_path(p),'[]'::jsonb)) v $$;
 CREATE OR REPLACE FUNCTION tapped_internal.json_set(doc text,VARIADIC args text[]) RETURNS text LANGUAGE plpgsql IMMUTABLE STRICT AS $$ DECLARE result jsonb:=doc::jsonb; i integer; BEGIN IF cardinality(args)%2<>0 THEN RAISE EXCEPTION 'Invalid JSON arguments'; END IF; FOR i IN 1..cardinality(args) BY 2 LOOP result:=jsonb_set(result,tapped_internal.json_path(args[i]),to_jsonb(args[i+1]),true); END LOOP; RETURN result::text; END $$;
 CREATE OR REPLACE FUNCTION tapped_internal.json_remove(doc text,VARIADIC paths text[]) RETURNS text LANGUAGE plpgsql IMMUTABLE STRICT AS $$ DECLARE result jsonb:=doc::jsonb; p text; BEGIN FOREACH p IN ARRAY paths LOOP result:=result #- tapped_internal.json_path(p); END LOOP; RETURN result::text; END $$;
+-- Pin helper function resolution to trusted schemas; rerunning setup must retain hardening.
+ALTER FUNCTION tapped_internal.json_path(text) SET search_path = pg_catalog, tapped_internal;
+ALTER FUNCTION tapped_internal.json_extract(text,text) SET search_path = pg_catalog, tapped_internal;
+ALTER FUNCTION tapped_internal.json_each(text,text) SET search_path = pg_catalog, tapped_internal;
+ALTER FUNCTION tapped_internal.json_set(text,VARIADIC text[]) SET search_path = pg_catalog, tapped_internal;
+ALTER FUNCTION tapped_internal.json_remove(text,VARIADIC text[]) SET search_path = pg_catalog, tapped_internal;
 ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE private_state ENABLE ROW LEVEL SECURITY;
 ALTER TABLE entities ENABLE ROW LEVEL SECURITY;

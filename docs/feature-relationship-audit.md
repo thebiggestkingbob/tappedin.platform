@@ -184,3 +184,13 @@ The Office creation endpoint now checks the **server-side owner** of a linked op
 - Added `tests/negotiation-office-handoff.test.mjs`. The changed JavaScript modules passed syntax parsing.
 
 **Important:** this does not auto-create a booking, auto-invite the counterparty, process payment, or generate a signed legal contract. The current project scope prefill does not itself lock or independently verify the accepted agreement terms; the negotiation's accepted revision remains the reference. Further work is needed on contextual messaging, event/activity alerts, transaction-aware duplicate errors, complete Node/build tests and two-account preview QA. Do not deploy to production until all release gates pass.
+
+## Implementation update — explicit participant invitation
+
+- Linked project creation accepts `inviteSourceCounterparty` only when the owner explicitly checks the invitation option.
+- For accepted bookings, the eligible invitee is the booked professional; for accepted negotiations, the recipient; for opportunities, an accepted applicant is inferred only if exactly one exists.
+- Invited members receive `status:'Invited'` and must accept before workspace access; existing member acceptance and project access checks remain in effect.
+- When multiple applicants are accepted, the creator must invite individuals manually rather than guessing which applicant should be added.
+- Added `tests/linked-counterparty-invitation.test.mjs`; both edited JS files parsed successfully.
+
+**Release gate remains closed.** Pending: proper negotiation context in direct messages and activity notifications; complete behavioral integration tests; preview browser verification with two distinct accounts; migration duplicate-data review and application. These source assertions do not establish that the full build or UI works.

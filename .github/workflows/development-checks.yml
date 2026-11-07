@@ -1,0 +1,27 @@
+name: TAPPED IN development checks
+
+# Run on demand while stabilizing the suite; avoid email noise on every push.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Build production bundle
+        run: npm run build
+      - name: Check generated server bundle syntax
+        run: node --check dist/server/index.js
+      - name: Run automated tests
+        run: npm test

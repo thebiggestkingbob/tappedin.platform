@@ -1,0 +1,43 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+
+const office = readFileSync(new URL('../web/community.js', import.meta.url), 'utf8');
+const opportunity = readFileSync(new URL('../web/upgrade.js', import.meta.url), 'utf8');
+
+test('accepted brief exposes explicit linked-workspace action', () => {
+  assert.match(opportunity, /a\.status==='Accepted'/);
+  assert.match(opportunity, /Create linked workspace/);
+  assert.match(opportunity, /newProject\(false/);
+});
+
+test('linked project creation is owner-guarded and does not silently invite people', () => {
+  assert.match(office, /o\.id===sourceId&&o\.by==='me'/);
+  assert.match(office, /Only an eligible source owner can start a linked workspace/);
+  assert.match(office, /Inviting someone does not grant access until they accept/);
+  assert.match(office, /linked:document\.getElementById\('project-linked'\)\.value/);
+});
+
+const backend = readFileSync(new URL('../worker/community.mjs', import.meta.url), 'utf8');
+
+test('server requires brief ownership and an accepted application before linking', () => {
+  assert.match(backend, /Only the brief owner can create its linked workspace/);
+  assert.match(backend, /Accept an application before creating a linked workspace/);
+  assert.match(backend, /json_extract\(data,'\$\.status'\) = 'Accepted'/);
+});
+
+test('server rejects an already linked workspace and UI hides repeated creation', () => {
+  assert.match(backend, /A workspace is already linked to this brief/);
+  assert.match(opportunity, /!officeProjects\.some\(p=>p\.linked===id/);
+});
+
+test('linked work picker lists only owned posts and briefs', () => {
+  assert.match(office, /state\.posts\.filter\(p=>p\.type==='work'&&p\.by==='me'\)/);
+  assert.match(office, /state\.opps\.filter\(p=>p\.by==='me'\)/);
+  assert.match(backend, /Only the owner can link this work to a new workspace/);
+});
+
+test('existing linked workspace is navigable from the source brief', () => {
+  assert.match(opportunity, /Open linked workspace/);
+  assert.match(opportunity, /openProject\(/);
+});

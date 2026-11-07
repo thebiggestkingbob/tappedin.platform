@@ -103,6 +103,10 @@ END $$;
 
 CREATE INDEX IF NOT EXISTS "entities_kind_owner" ON "entities" ("kind","owner");
 CREATE INDEX IF NOT EXISTS "entities_recipient_kind" ON "entities" ("recipient","kind");
+-- One linked Office workspace per source, enforced atomically by PostgreSQL.
+-- This index will reject duplicate legacy links; review existing data before applying.
+CREATE UNIQUE INDEX IF NOT EXISTS "project_linked_source_unique" ON "entities" ((data::jsonb ->> 'linked')) WHERE "kind" = 'project' AND COALESCE(data::jsonb ->> 'linked','') <> '';
+
 CREATE UNIQUE INDEX IF NOT EXISTS "grants_owner_agent" ON "grants" ("owner","agent");
 CREATE INDEX IF NOT EXISTS "grants_agent" ON "grants" ("agent");
 CREATE INDEX IF NOT EXISTS "messages_thread_created" ON "messages" ("thread","created");

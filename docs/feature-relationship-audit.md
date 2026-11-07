@@ -24,7 +24,7 @@ TAPPED IN should connect identity → discovery/public activity → professional
 
 **C1 — No dedicated structured negotiation workflow found in the inspected application modules.** Text search of `web/community.js`, `web/platform.js`, `worker/index.mjs` and `worker/community.mjs` yielded no `negotiat*` implementation. Messages, bids, booking requests and invoices exist, but a first-class offer/counteroffer/acceptance contract is not evidenced. This is an *absence in inspected modules*, not proof no other implementation exists. Audit the remaining UI and handlers before implementing.
 
-**C2 — Invoice status is manually editable by the project owner, not verified payment settlement.** `worker/community.mjs` accepts owner-only `invoicestatus` updates including `Paid`. `README.md` and `docs/homepage-showcase.md` explicitly state no billing/payment processing. UI must label `Paid` as a manually recorded status and must not imply funds were processed by TAPPED IN.
+**C2 — Invoice status is manually editable by the project owner, not verified payment settlement.** `worker/community.mjs` accepts owner-only `invoicestatus` updates including `Paid`. `README.md` and `docs/homepage-showcase.md` explicitly state no billing/payment processing. The invoices tab already warns that status does not collect or transfer money; preserve this. The printable invoice view shows `Paid` without that qualification, so review clearer payment provenance on printed/exported invoices. Do not imply verified settlement.
 
 **C3 — Discovery search is client-side over public bootstrap data.** `docs/platform-updates.md` confirms this, with server search/pagination a future scaling need. This can produce incomplete results as membership grows.
 
@@ -95,3 +95,26 @@ Transitions require role/ownership checks, server-side validation, idempotency a
 
 ## Guardrails
 No changes to production, no destructive migrations, no invented payments or verified social metrics, no automatic publishing of drafts, and no new role privileges without explicit approval. Implement incrementally on review branches with tests and preview validation.
+
+## Detailed source trace — second pass (2026-11-07)
+
+**Finding T1 — Accepted opportunity application does not create an Office project.** In `worker/index.mjs`, the `applications` update branch accepts/declines an application and, on acceptance, appends a member to the opportunity's `team`. There is no Office project creation in this branch. The separate `POST /api/v3/office` route in `worker/community.mjs` creates a project and optionally links a post or opportunity, but does not take an accepted application as its source. **Confirmed disconnected handoff**: acceptance and project creation are separate actions. Design question: should accepting an application offer to create a project, or automatically create one only after explicit scope/budget confirmation?
+
+**Finding T2 — Booking acceptance does not create an Office project.** In `worker/index.mjs`, `requests` is stored as a booking entity and changes status between Requested, Accepted, Declined, Completed or Cancelled. The update does not create a project, invoice or conversation link. **Confirmed missing automatic handoff**, but automatic project creation may not be appropriate for every booking. Distinguish simple appearance bookings from multi-deliverable projects.
+
+**Finding T3 — Project proposals exist, but they are not bilateral deal negotiations.** In `worker/community.mjs`, `proposal` adds a pending budget/scope approval to an existing project; `approve` and `decline` are restricted to owner or delegated approval agent. Approval updates project budget, budget items and scope. This is a *project-owner approval workflow*, not a two-party offer/counteroffer negotiation room. Do not remove it; consider reusing its structured budget items in a separately defined agreement workflow.
+
+**Finding T4 — Two separate message contexts are intentional today.** `worker/index.mjs` uses `threads`/`messages` for direct messages; `worker/community.mjs` uses `projectmessage` entities scoped to accepted project participants. The UI shows both Office Inbox and project Chat. They are distinct persisted channels. Recommended: keep privacy scopes separate but add explicit cross-links and a shared activity presentation rather than merging private direct messages into project chat.
+
+**Finding T5 — Invoices are project-owned, not agreement-sourced.** `worker/community.mjs` stores invoices within the project `invoices` array, with independently entered client, line items, tax, due date and status. No accepted-offer reference is present in the creation path. Existing `web/community.js` invoice tab correctly states that status does not collect or transfer money; printable invoice view displays only status. Recommend optional agreement/milestone reference, reconciliation and provenance, without assuming a payment processor exists.
+
+**Finding T6 — The UI's project entry point is manual.** `web/community.js` lists `Create project +` in Office and supports linking existing posts/briefs. This explains why an accepted application does not necessarily appear as a ready-to-work workspace. The desired change should be designed as a controlled conversion action with idempotency and explicit participant consent, not silent creation.
+
+### Proposed implementation sequence (review before changing backend)
+1. **Source-to-work handoff:** introduce a single conversion endpoint that verifies the accepted application/booking, caller authority, participant eligibility and no existing conversion; returns existing project if already converted. Choose whether confirmation is required and which side owns the workspace.
+2. **Agreement state:** define offer revision IDs, counterpart consent, immutable accepted snapshot, currency, fee, deliverables, schedule and cancellation rules. Do not treat existing one-sided project approval as bilateral consent.
+3. **Contextual navigation:** display linked source opportunity/booking and project in both users' Inbox, Discovery/Bookings and Office without exposing private data.
+4. **Invoice provenance:** attach optional accepted agreement ID and payment-record provenance, preserving existing invoices and manual statuses.
+5. **Two-account tests:** accept bid → convert once → verify both permissions; accept booking → convert only when requested; reject/withdraw → cannot convert; revoke agent → denied; unrelated third user → denied; duplicate/retry → no duplicate project.
+
+No functional changes have been made in this pass. This trace provides the implementation contract for a scoped engineering PR.

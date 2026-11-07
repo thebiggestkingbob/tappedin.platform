@@ -17,3 +17,16 @@ test('linked project creation is owner-guarded and does not silently invite peop
   assert.match(office, /creating the workspace does not automatically invite them or confirm new terms/);
   assert.match(office, /linked:document\.getElementById\('project-linked'\)\.value/);
 });
+
+const backend = readFileSync(new URL('../worker/community.mjs', import.meta.url), 'utf8');
+
+test('server requires brief ownership and an accepted application before linking', () => {
+  assert.match(backend, /Only the brief owner can create its linked workspace/);
+  assert.match(backend, /Accept an application before creating a linked workspace/);
+  assert.match(backend, /json_extract\(data,'\$\.status'\) = 'Accepted'/);
+});
+
+test('server rejects an already linked workspace and UI hides repeated creation', () => {
+  assert.match(backend, /A workspace is already linked to this brief/);
+  assert.match(opportunity, /!officeProjects\.some\(p=>p\.linked===id/);
+});

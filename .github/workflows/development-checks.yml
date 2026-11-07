@@ -19,9 +19,9 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
-      - name: Run automated tests
-        run: npm test
       - name: Build production bundle
         run: npm run build
       - name: Check generated server bundle syntax
         run: node --check dist/server/index.js
+      - name: Run automated tests
+        run: npm test

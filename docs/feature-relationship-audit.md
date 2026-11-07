@@ -194,3 +194,12 @@ The Office creation endpoint now checks the **server-side owner** of a linked op
 - Added `tests/linked-counterparty-invitation.test.mjs`; both edited JS files parsed successfully.
 
 **Release gate remains closed.** Pending: proper negotiation context in direct messages and activity notifications; complete behavioral integration tests; preview browser verification with two distinct accounts; migration duplicate-data review and application. These source assertions do not establish that the full build or UI works.
+
+## Implementation update — private Office activity and CI
+
+- Added `GET /api/v3/office-activity` returning a participant-scoped list of negotiation updates and project invitations, with action-required flags. This is a **pull-to-refresh activity view**, not real-time push notifications.
+- Added Office Activity navigation and safe review controls; reviewing an invitation navigates to the invitation instead of accepting it automatically.
+- Added `tests/office-activity.test.mjs` and checked syntax for the edited worker and browser modules.
+- Added `.github/workflows/development-checks.yml` to run `npm ci`, `npm test`, `npm run build`, and `node --check dist/server/index.js` on PRs and feature-branch pushes. **No successful workflow run has been confirmed.**
+
+**Release gate:** inspect the GitHub Actions results and repair failures; validate real database authorization and concurrent project creation; review duplicate linked sources before applying the unique index; perform two-account preview QA; confirm negotiated agreement/booking handoffs and privacy. Production stays unchanged.
